@@ -7,6 +7,8 @@ import {useState} from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 import Sidebar from './components/Sidebar';
 
+import FormRQS from './components/formulariosrqs/FormRQS';
+
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
@@ -20,7 +22,6 @@ function App() {
 
   return (
     <div className="App">
-    <div className="App">
       <Header title={"Modulo de Solicitudes y Reclamos"}/>
       <Nav />
       <button onClick={handleSidebarOpen}>Abrir Sidebar</button>
@@ -29,11 +30,13 @@ function App() {
         <Route exact path="/">
           <Home  />
         </Route>
+        <Route exact path="/formularioRQS">
+          <FormRQS  />
+        </Route>
 
         <Route exact path="/about" component={About} />
         <Route path="*" component={Missing} />
       </Switch>
-    </div>
     </div>
   );
 }

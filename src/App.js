@@ -8,9 +8,14 @@ import { Route, Switch, useHistory } from 'react-router-dom'
 import Sidebar from './components/Sidebar';
 
 import FormRQS from './components/formulariosrqs/FormRQS';
+import TablaReclamo from './components/tablasrqs/TablaReclamo';
+
+import reclamos from './data/reclamos';
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const [reclamosLista, setReclamosLista] = useState(reclamos)
 
   const handleSidebarOpen = () => {
     setSidebarOpen(true);
@@ -32,6 +37,9 @@ function App() {
         </Route>
         <Route exact path="/formularioRQS">
           <FormRQS  />
+        </Route>
+        <Route exact path="/Reclamos">
+          <TablaReclamo  filas={reclamosLista}/>
         </Route>
 
         <Route exact path="/about" component={About} />

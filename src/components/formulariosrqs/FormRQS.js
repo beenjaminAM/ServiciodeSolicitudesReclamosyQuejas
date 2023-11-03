@@ -1,4 +1,3 @@
-import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 // Elementos
@@ -37,8 +36,6 @@ const FormRQS = ({
   const [categoriaSolicitud, setCategoriaSolicitud] = useState("")
   const [categoriaReclamo, setCategoriaReclamo] = useState("")
 
-  const history = useHistory()
-
   switch (tipoFormulario) {
     case 'Solicitud':
       formularioRQS = 
@@ -65,25 +62,11 @@ const FormRQS = ({
       formularioRQS = null; // Caso por defecto aquí
   }
 
-const handleFormSubmit = (e) => {
-  e.preventDefault();
-  alert(
-    `Tipo Cliente: ${tipoDeCliente}
-    \nCliente Empresa: ${clienteEmpresaNombre}
-    \nCliente Natural: ${clienteNaturalNombre}
-    \n\nTipo de Registro: ${tipoFormulario}
-    \nReclamo: ${categoriaReclamo}
-    \nQueja: ${categoriaQueja}
-    \nSolicitud: ${categoriaSolicitud}`
-  )
-  history.push('/')
-
-}; 
 
   
   return (
     <main className="Form">
-      <form onSubmit={handleFormSubmit}>
+      <form action="">
 
         <h2>Formulario</h2>
         {/* Seleccionar Registrar Informacion de una Persona Natural o Juridica */}
